@@ -11,19 +11,19 @@ C:\Program Files\Unity\Hub\Editor\2020.2.3f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-D:/Unity/TDM
+D:/Unity/TowerDefense
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50324
-Successfully changed project path to: D:/Unity/TDM
-D:/Unity/TDM
+55533
+Successfully changed project path to: D:/Unity/TowerDefense
+D:/Unity/TowerDefense
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 1313.35 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1160.64 ms, found 3 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.2.3f1 (8ff31bc5bf5b)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path D:/Unity/TDM/Assets
+[Subsystems] Discovering subsystems at path D:/Unity/TowerDefense/Assets
 GfxDevice: creating device client; threaded=0
 d3d11: QueryInterface(IDXGIFactory5) failed (80004002).
 Direct3D:
@@ -36,5 +36,5 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.3f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56308
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56984
 Begin MonoManager ReloadAssembly

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{95A91FF7-AA6A-044A-DA74-4D4D544E40C7}</ProjectGuid>
+    <ProjectGuid>{17BB7AF0-A1AD-DCE4-09CE-1D3A3635465B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\GameScripts\Game\controll_clicks.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Game\Pause.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Game\GetDamageFromEnemy.cs" />
+    <Compile Include="Assets\Scripts\BDScripts\Connection_on_MySQL.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Tower\Bullet\Damage.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Game\CountClicks.cs" />
     <Compile Include="Assets\Scripts\GameScripts\UI\TransitionScene.cs" />
@@ -69,13 +70,67 @@
     <Compile Include="Assets\Scripts\BDScripts\SQLite.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Tower\SpawnBullets.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Game\CountKills.cs" />
+    <Compile Include="Assets\Scripts\GameScripts\Game\EndGame.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Enemy\Move.cs" />
     <Compile Include="Assets\Scripts\GameScripts\UI\Exit.cs" />
     <Compile Include="Assets\Scripts\BDScripts\Connection.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Game\Spawner.cs" />
-    <Compile Include="Assets\Scripts\GameScripts\Game\EndGame.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll" />
+     <None Include="Assets\Packages\Portable.BouncyCastle.1.9.0\lib\netstandard2.0\BouncyCastle.Crypto.dll" />
+     <None Include="Assets\Packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.xml" />
+     <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\THIRD-PARTY-NOTICES.TXT" />
+     <None Include="Assets\Packages\Google.Protobuf.3.19.4\lib\netstandard2.0\Google.Protobuf.xml" />
+     <None Include="Assets\Packages\System.Memory.4.5.5\lib\netstandard2.0\System.Memory.dll" />
+     <None Include="Assets\Packages\System.Buffers.4.5.1\LICENSE.TXT" />
+     <None Include="Assets\Packages\System.Memory.4.5.5\THIRD-PARTY-NOTICES.TXT" />
+     <None Include="Assets\Packages\System.Buffers.4.5.1\version.txt" />
+     <None Include="Assets\Packages\System.Configuration.ConfigurationManager.4.4.1\LICENSE.TXT" />
+     <None Include="Assets\Packages\System.Configuration.ConfigurationManager.4.4.1\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll" />
+     <None Include="Assets\Packages\System.Security.Permissions.4.7.0\version.txt" />
+     <None Include="Assets\Packages\System.Configuration.ConfigurationManager.4.4.1\version.txt" />
+     <None Include="Assets\Packages\System.Memory.4.5.5\useSharedDesignerContext.txt" />
+     <None Include="Assets\Packages\MySql.Data.8.0.31\lib\netstandard2.0\MySql.Data.xml" />
+     <None Include="Assets\Packages\System.Diagnostics.DiagnosticSource.6.0.0\LICENSE.TXT" />
+     <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll" />
+     <None Include="Assets\Packages\Portable.BouncyCastle.1.9.0\lib\netstandard2.0\BouncyCastle.Crypto.xml" />
+     <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\LICENSE.TXT" />
+     <None Include="Assets\Packages\MySql.Data.8.0.31\lib\netstandard2.0\ZstdNet.dll" />
+     <None Include="Assets\Packages\System.Buffers.4.5.1\lib\netstandard2.0\System.Buffers.dll" />
+     <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\useSharedDesignerContext.txt" />
+     <None Include="Assets\Packages\System.Diagnostics.DiagnosticSource.6.0.0\THIRD-PARTY-NOTICES.TXT" />
+     <None Include="Assets\Packages\MySqlConnector.2.2.5\lib\netstandard2.0\MySqlConnector.xml" />
+     <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\version.txt" />
+     <None Include="Assets\Packages\System.Memory.4.5.5\version.txt" />
+     <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\lib\netstandard2.0\System.Threading.Tasks.Extensions.xml" />
+     <None Include="Assets\Packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll" />
+     <None Include="Assets\Packages\System.Configuration.ConfigurationManager.4.4.1\THIRD-PARTY-NOTICES.TXT" />
+     <None Include="Assets\Packages\System.Security.Permissions.4.7.0\useSharedDesignerContext.txt" />
+     <None Include="Assets\Packages\K4os.Compression.LZ4.Streams.1.2.6\lib\netstandard2.0\K4os.Compression.LZ4.Streams.dll" />
+     <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\THIRD-PARTY-NOTICES.TXT" />
+     <None Include="Assets\Packages\System.Security.Permissions.4.7.0\THIRD-PARTY-NOTICES.TXT" />
+     <None Include="Assets\Packages\K4os.Hash.xxHash.1.0.6\lib\netstandard2.0\K4os.Hash.xxHash.dll" />
+     <None Include="Assets\Packages\System.Memory.4.5.5\LICENSE.TXT" />
+     <None Include="Assets\Packages\K4os.Compression.LZ4.1.2.6\lib\netstandard2.0\K4os.Compression.LZ4.dll" />
+     <None Include="Assets\Packages\System.Security.Permissions.4.7.0\lib\netstandard2.0\System.Security.Permissions.xml" />
+     <None Include="Assets\Packages\System.Memory.4.5.5\lib\netstandard2.0\System.Memory.xml" />
+     <None Include="Assets\Packages\System.Buffers.4.5.1\useSharedDesignerContext.txt" />
+     <None Include="Assets\Packages\K4os.Compression.LZ4.1.2.6\lib\netstandard2.0\K4os.Compression.LZ4.xml" />
+     <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.xml" />
+     <None Include="Assets\Packages\Google.Protobuf.3.19.4\lib\netstandard2.0\Google.Protobuf.dll" />
+     <None Include="Assets\Packages\MySql.Data.8.0.31\lib\netstandard2.0\MySql.Data.dll" />
+     <None Include="Assets\Packages\K4os.Compression.LZ4.Streams.1.2.6\lib\netstandard2.0\K4os.Compression.LZ4.Streams.xml" />
+     <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\useSharedDesignerContext.txt" />
+     <None Include="Assets\Packages\K4os.Hash.xxHash.1.0.6\lib\netstandard2.0\K4os.Hash.xxHash.xml" />
+     <None Include="Assets\Packages\System.Buffers.4.5.1\lib\netstandard2.0\System.Buffers.xml" />
+     <None Include="Assets\Packages\System.Security.Permissions.4.7.0\lib\netstandard2.0\System.Security.Permissions.dll" />
+     <None Include="Assets\Packages\System.Security.Permissions.4.7.0\LICENSE.TXT" />
+     <None Include="Assets\Packages\MySqlConnector.2.2.5\lib\netstandard2.0\MySqlConnector.dll" />
+     <None Include="Assets\Packages\System.Buffers.4.5.1\THIRD-PARTY-NOTICES.TXT" />
+     <None Include="Assets\Packages\System.Configuration.ConfigurationManager.4.4.1\useSharedDesignerContext.txt" />
+     <None Include="Assets\Packages\System.Diagnostics.DiagnosticSource.6.0.0\useSharedDesignerContext.txt" />
+     <None Include="Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\LICENSE.TXT" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.3f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
@@ -298,20 +353,71 @@
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.3f1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>Assets\Packages\System.Buffers.4.5.1\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf">
+      <HintPath>Assets\Packages\Google.Protobuf.3.19.4\lib\netstandard2.0\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4">
+      <HintPath>Assets\Packages\K4os.Compression.LZ4.1.2.6\lib\netstandard2.0\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
     <Reference Include="System.EnterpriseServices">
       <HintPath>Assets\Plugins\System.EnterpriseServices.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams">
+      <HintPath>Assets\Packages\K4os.Compression.LZ4.Streams.1.2.6\lib\netstandard2.0\K4os.Compression.LZ4.Streams.dll</HintPath>
     </Reference>
     <Reference Include="System.Security">
       <HintPath>Assets\Plugins\System.Security.dll</HintPath>
     </Reference>
+    <Reference Include="MySqlConnector">
+      <HintPath>Assets\Packages\MySqlConnector.2.2.5\lib\netstandard2.0\MySqlConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions">
+      <HintPath>Assets\Packages\System.Security.Permissions.4.7.0\lib\netstandard2.0\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>Assets\Packages\System.Configuration.ConfigurationManager.4.4.1\lib\netstandard2.0\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory">
+      <HintPath>Assets\Packages\System.Memory.4.5.5\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>Assets\Packages\Portable.BouncyCastle.1.9.0\lib\netstandard2.0\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>Assets\Packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\netstandard2.0\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="i18n.cjk">
+      <HintPath>Assets\Plugins\i18n.cjk.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Data.Sqlite">
       <HintPath>Assets\Plugins\Mono.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions">
+      <HintPath>Assets\Packages\System.Threading.Tasks.Extensions.4.5.4\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.Configuration">
       <HintPath>Assets\Plugins\System.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="I18N.West">
+      <HintPath>Assets\Plugins\I18N.West.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data">
       <HintPath>Assets\Plugins\System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>Assets\Packages\MySql.Data.8.0.31\lib\netstandard2.0\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash">
+      <HintPath>Assets\Packages\K4os.Hash.xxHash.1.0.6\lib\netstandard2.0\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdNet">
+      <HintPath>Assets\Packages\MySql.Data.8.0.31\lib\netstandard2.0\ZstdNet.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.3f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
