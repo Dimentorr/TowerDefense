@@ -1,51 +1,80 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 using MySqlConnector;
 
 using System;
-using System.Diagnostics;
 
 public class Connection_on_MySQL : MonoBehaviour
-{   
+{
+    // openserver
+    /*public MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder
+    {
+        Server = "localhost",
+        Database = "test_for_game",
+        UserID = "root",
+        Password = ""
+    };*/
+
+    // spaceweb
     public MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder
     {
-    Server = "localhost",
-    UserID = "root",
-    Password = "",
-    Database = "test_for_game",
+        Server = "FVH1.spaceweb.ru",
+        Database = "toweradmin",
+        UserID = "toweradmin",
+        Password = "LifeAfterDeath999"
     };
 
     // Start is called before the first frame update
-    public void ReaderForTests(List<object[]> message)
+    public List<string> Reader(List<object[]> message)
     {
+        List<string> result = new List<string>();
         foreach (var i in message)
         {
             string res = "";
             foreach (var j in i)
             {
-                res = res + "; " + j;
+                if (res != "")
+                {
+                    res = res + "; " + j;
+                }
+                else
+                {
+                    res = j.ToString();
+                }
             }
-            UnityEngine.Debug.Log(res);
+            result.Add(res);
         }
+        return result;
     }
 
-    public List<object[]> SqlSelect(MySqlConnectionStringBuilder builder, string elements, string table_base, string condition=null)
+    public List<object[]> SqlSelect(string table_base, string condition=null)
     {
         string StrCommand = "";
         using var connection = new MySqlConnection(builder.ConnectionString);
-        connection.Open();
+        Debug.Log(connection);
+        try
+        {
+            connection.Open();
+        }
+        catch (MySqlException e)
+        {
+            Debug.Log(e.ToString());
+        }
+        catch(Exception e)
+        {
+            Debug.Log(e.ToString());
+        }
 
         List<object[]> result = new List<object[]>();
 
         if (condition != null)
         {
-            StrCommand = $"SELECT {elements} FROM {table_base} Where {condition}";
+            StrCommand = $"SELECT * FROM {table_base} Where {condition}";
         }
         else
         {
-            StrCommand = $"SELECT {elements} FROM {table_base}";
+            StrCommand = $"SELECT * FROM {table_base}";
         }
 
         // создание запроса в бд
@@ -67,7 +96,7 @@ public class Connection_on_MySQL : MonoBehaviour
         return result;
     }
 
-    public void SqlUpdate(MySqlConnectionStringBuilder builder, string table_base, List<string> names_columns, List<string> values, string condition)
+    public void SqlUpdate(string table_base, List<string> names_columns, List<string> values, string condition)
     {
         using var connection = new MySqlConnection(builder.ConnectionString);
         connection.Open();
@@ -105,7 +134,7 @@ public class Connection_on_MySQL : MonoBehaviour
         connection.Close();
     }
 
-    public void SqlInsert(MySqlConnectionStringBuilder builder, string table_base, List<string> values)
+    public void SqlInsert(string table_base, List<string> values)
     {
         using var connection = new MySqlConnection(builder.ConnectionString);
         connection.Open();
@@ -131,7 +160,6 @@ public class Connection_on_MySQL : MonoBehaviour
                 StrCommand += ")";
             }
         }
-        UnityEngine.Debug.Log(StrCommand);
         // создание запроса в бд
         using var command = new MySqlCommand(StrCommand, connection);
 
@@ -141,7 +169,7 @@ public class Connection_on_MySQL : MonoBehaviour
         connection.Close();
     }
 
-    public void SqlDelete(MySqlConnectionStringBuilder builder, string table_base, string condition)
+    public void SqlDelete(string table_base, string condition)
     {
         using var connection = new MySqlConnection(builder.ConnectionString);
         connection.Open();
