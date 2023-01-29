@@ -1,130 +1,151 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using SQLite4Unity3d;
 
 public class Connection : MonoBehaviour
 {
-    public SQLiteConnection db;
+    public SQLiteConnection db = new SQLiteConnection(Application.streamingAssetsPath + "/base/DBForGame.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
 
-    public void Start()
+    public void CheckDB()
     {
-        db = new SQLiteConnection(Application.streamingAssetsPath + "/base/DBForGame.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
         try
         {
-            var for_check_DB = db.Table<CheckBase>().Where(_ => _.Check == 1).FirstOrDefault().ToString() == "1";
+            var for_check_DB = db.Table<user>().FirstOrDefault().ToString();
         }
         catch (SQLiteException)
         {
-            db.CreateTable<CheckBase>();
-            db.CreateTable<Levels>();
-            db.CreateTable<UpgradesTower>();
-            InsertData();
+            db.CreateTable<user>();
+            db.CreateTable<levels>();
+            db.CreateTable<progress>();
         }
     }
 
-    public void InsertData()
+    public void InsertData(string table, List<string> data)
     {
-        db.InsertAll(new[]
+        if (table == "user")
         {
-            new Levels
+            db.InsertAll(new[]
             {
-                Condition = 0,
-                Stars = 0
-            },
-
-            new Levels
-            {
-                Condition = 0,
-                Stars = 0
-            },
-
-            new Levels
-            {
-                Condition = 0,
-                Stars = 0
-            }
-        });
-
-        db.InsertAll(new[]
+                new user
+                {
+                    id = 1,
+                    name = data[0],
+                    password = data[1],
+                    role = data[2],
+                    isBaned = Convert.ToInt32(data[3])
+                }
+            });
+        }
+        else if (table == "levels")
         {
-            new UpgradesTower
-            {
-                TypeTower = "Default",
-                Tire = 0
-            },
-            new UpgradesTower
-            {
-                TypeTower = "Fast",
-                Tire = 0
-            }
-        });
-        db.InsertAll(new[]
-        {
-            new CheckBase
-            {
-                Check = 1
-            }
-        });
+            db.InsertAll(new[]
+           {
+                new levels
+                {
+                    id = Convert.ToInt32(data[0]),
+                    corners = data[1],
+                    towerPlace = data[2]
+                }
+            });
+        }
+
     }
 
-    public string Select_UpgradesTower(int ID)
+    public string Select_User(int ID=1)
     {
-        string answer = db.Table<UpgradesTower>().Where(_ => _.Id == ID).FirstOrDefault().ToString();
+        try
+        {
+            string answer = db.Table<user>().Where(_ => _.id == ID).FirstOrDefault().ToString();
+            return answer;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    public string Select_Progress(int ID)
+    {
+        try
+        {
+            string answer = db.Table<progress>().Where(_ => _.levelId == ID).FirstOrDefault().ToString();
         return answer;
+        }
+        catch
+        {
+            return null;
+        }
     }
-
     public string Select_Levels(int ID)
     {
-        string answer = db.Table<Levels>().Where(_ => _.Id == ID).FirstOrDefault().ToString();
-        return answer;
+        try
+        {
+            string answer = db.Table<levels>().Where(_ => _.id == ID).FirstOrDefault().ToString();
+            return answer;
+        }
+        catch
+        {
+            return null;
+        }
     }
 
-    public void UpdateTable_UpgradesTower(int ID, int tire)
+    public void UpdateTable_Progress(int ID, int levelId, int stars)
     {
-        var for_update = db.Table<UpgradesTower>().Where(_ => _.Id == ID).FirstOrDefault();
-        for_update.Tire = tire;
+        var for_update = db.Table<progress>().Where(_ => _.levelId == ID).FirstOrDefault();
+        for_update.levelId = levelId;
+        for_update.stars = stars;
         db.Update(for_update);
     }
 
-    public void UpdateTable_Levels(int ID, int condition, int stars)
+    public void UpdateTable_User(int ID, string password, int isBaned=0, string role="player")
     {
-        var for_update = db.Table<Levels>().Where(_ => _.Id == ID).FirstOrDefault();
-        for_update.Condition = condition;
-        for_update.Stars = stars;
+        var for_update = db.Table<user>().Where(_ => _.id == ID).FirstOrDefault();
+        for_update.password = password;
+        for_update.isBaned = isBaned;
+        for_update.role = role;
         db.Update(for_update);
     }
-}
-
-public class Levels
-{
-    [PrimaryKey, AutoIncrement]
-    public int Id { get; set; }
-    public int Condition { get; set; }
-    public int Stars { get; set; }
-    public override string ToString()
+    public void DeleteTable_User()
     {
-        return string.Format("{0},{1},{2}", Id, Condition, Stars);
+        db.DeleteAll<user>();
     }
 }
 
-public class UpgradesTower
+public class levels
 {
     [PrimaryKey, AutoIncrement]
-    public int Id { get; set; }
-    public string TypeTower { get; set; }
-    public int Tire { get; set; }
+    public int id { get; set; }
+    public string corners { get; set; }
+    public string towerPlace { get; set; }
     public override string ToString()
     {
-        return string.Format("{0},{1},{2}", Id, TypeTower, Tire);
+        return string.Format("{0},{1},{2}", id, corners, towerPlace);
     }
 }
 
-public class CheckBase
+public class user
 {
-    public int Check { get; set; }
+    [PrimaryKey, AutoIncrement]
+    public int id { get; set; }
+    public string name { get; set; }
+    public string password { get; set; }
+    public string role { get; set; }
+    public int isBaned { get; set; }
+
     public override string ToString()
     {
-        return string.Format("{0}", Check);
+        return string.Format("{0},{1},{2},{3},{4}", id, name, password, isBaned, role);
+    }
+}
+
+public class progress
+{
+    public int levelId { get; set; }
+    public int stars { get; set; }
+    public override string ToString()
+    {
+        return string.Format("{0},{1}", levelId, stars);
     }
 }

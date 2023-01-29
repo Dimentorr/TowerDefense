@@ -7,6 +7,7 @@ using System;
 
 public class Connection_on_MySQL : MonoBehaviour
 {
+
     // openserver
     /*public MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder
     {
@@ -16,13 +17,13 @@ public class Connection_on_MySQL : MonoBehaviour
         Password = ""
     };*/
 
-    // spaceweb
+    // freesqldatabase.com
     public MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder
     {
-        Server = "FVH1.spaceweb.ru",
-        Database = "toweradmin",
-        UserID = "toweradmin",
-        Password = "LifeAfterDeath999"
+        Server = "sql12.freesqldatabase.com",
+        Database = "sql12593706",
+        UserID = "sql12593706",
+        Password = "34IAV76t1g"
     };
 
     // Start is called before the first frame update
@@ -36,7 +37,7 @@ public class Connection_on_MySQL : MonoBehaviour
             {
                 if (res != "")
                 {
-                    res = res + "; " + j;
+                    res = res + "," + j;
                 }
                 else
                 {
@@ -52,19 +53,7 @@ public class Connection_on_MySQL : MonoBehaviour
     {
         string StrCommand = "";
         using var connection = new MySqlConnection(builder.ConnectionString);
-        Debug.Log(connection);
-        try
-        {
-            connection.Open();
-        }
-        catch (MySqlException e)
-        {
-            Debug.Log(e.ToString());
-        }
-        catch(Exception e)
-        {
-            Debug.Log(e.ToString());
-        }
+        connection.Open();
 
         List<object[]> result = new List<object[]>();
 
@@ -87,7 +76,11 @@ public class Connection_on_MySQL : MonoBehaviour
         {
             if (table_base == "users")
             {
-                result.Add(new object[] { reader.GetInt32("id"), reader.GetString("name"), reader.GetString("password") });
+                result.Add(new object[] { reader.GetInt32("id"), reader.GetString("name"), reader.GetString("password"), reader.GetString("role"), reader.GetInt32("isBaned") });
+            }
+            if (table_base == "levels")
+            {
+                result.Add(new object[] { reader.GetInt32("id"), reader.GetString("corners"), reader.GetString("towerPlace") });
             }
         }
 
