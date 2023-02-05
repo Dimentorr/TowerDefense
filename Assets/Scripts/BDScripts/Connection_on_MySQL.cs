@@ -26,7 +26,7 @@ public class Connection_on_MySQL : MonoBehaviour
         Password = "34IAV76t1g"
     };
 
-    // Start is called before the first frame update
+    // конвертирует полученный после запроса в БД результат в удобный формат
     public List<string> Reader(List<object[]> message)
     {
         List<string> result = new List<string>();

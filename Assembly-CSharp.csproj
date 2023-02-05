@@ -71,7 +71,7 @@
     <Compile Include="Assets\Scripts\GameScripts\Tower\SpawnBullets.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Game\CountKills.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Game\EndGame.cs" />
-    <Compile Include="Assets\Scripts\BDScripts\RegLog\AddUser.cs" />
+    <Compile Include="Assets\Scripts\BDScripts\RegLog\RegLog.cs" />
     <Compile Include="Assets\Scripts\GameScripts\Enemy\Move.cs" />
     <Compile Include="Assets\Scripts\GameScripts\UI\Exit.cs" />
     <Compile Include="Assets\Scripts\BDScripts\Connection.cs" />
