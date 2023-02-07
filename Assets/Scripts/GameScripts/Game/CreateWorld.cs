@@ -11,8 +11,8 @@ public class CreateWorld : MonoBehaviour
 
     public int SizeWorld;
 
-    public List<string> NamesCorners = new List<string>(); // список имём углов дороги
-    public List<string> NamesTowersPlace = new List<string>(); // список имём точек для башен
+    public List<string> NCorners = new List<string>(); // список имём углов дороги
+    public List<string> NTowersPlace = new List<string>(); // список имём точек для башен
 
     private int index = 1; // индекс положительности/отрицательности направления куда строится дорога
     public GameObject Grass; // префаб клетки травы
@@ -30,9 +30,25 @@ public class CreateWorld : MonoBehaviour
 
     public void Start()
     {
+        var object_local_data_base = gameObject.GetComponent<Connection>();
+        var idLevel = PlayerPrefs.GetInt("NumLevel");
+        var AllDataLevels = object_local_data_base.Select_Levels(idLevel);
+        var Corners = new List<string>();
+        var TowerPlace = new List<string>();
+
+        foreach (var i in AllDataLevels.Split(',')[1].Split(' '))
+        {
+            Corners.Add(i);
+        }
+        foreach (var i in AllDataLevels.Split(',')[2].Split(' '))
+        {
+            TowerPlace.Add(i);
+        }
+        NCorners = Corners;
+        NTowersPlace = TowerPlace;
         SpawnPlace();
-        BuildOtherPlace(NamesTowersPlace, ForTower, true); // расстановка мест для башен
-        BuildOtherPlace(FindAllRoad(NamesCorners), Road); // расстановка клеток дороги
+        BuildOtherPlace(NTowersPlace, ForTower, true); // расстановка мест для башен
+        BuildOtherPlace(FindAllRoad(NCorners), Road); // расстановка клеток дороги
     }
 
     public void Update()
@@ -127,7 +143,7 @@ public class CreateWorld : MonoBehaviour
                     tmp.AddComponent<Spawner>();
                     tmp.GetComponent<Spawner>().controller = gameObject;
                     tmp.GetComponent<Spawner>().PlaceSpawnEnemy = tmp;
-                    tmp.GetComponent<Spawner>().NCorners = NamesCorners;
+                    tmp.GetComponent<Spawner>().NCorners = NCorners;
                     tmp.GetComponent<Spawner>().Enemy = Enemy;
                     tmp.GetComponent<Spawner>().CountGold = CountGold;
                 }

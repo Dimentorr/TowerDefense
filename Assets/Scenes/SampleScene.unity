@@ -928,7 +928,7 @@ GameObject:
   - component: {fileID: 638282459}
   - component: {fileID: 638282460}
   m_Layer: 0
-  m_Name: zvyozdy-transformed_1 (1)
+  m_Name: 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -946,7 +946,7 @@ Transform:
   m_LocalScale: {x: 0.908195, y: 0.908195, z: 0.908195}
   m_Children: []
   m_Father: {fileID: 1304536428}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &638282460
 SpriteRenderer:
@@ -1356,6 +1356,7 @@ GameObject:
   - component: {fileID: 1172034413}
   - component: {fileID: 1172034412}
   - component: {fileID: 1172034414}
+  - component: {fileID: 1172034415}
   m_Layer: 0
   m_Name: controller
   m_TagString: Untagged
@@ -1513,6 +1514,22 @@ MonoBehaviour:
   End: 0
   EndText: {fileID: 543585057}
   LastMassage: 
+  ActiveStar: {fileID: -7058955302235065899, guid: a98f19fa2274a444ba59b9cfd1a5705a, type: 3}
+  FirstStar: {fileID: 1793883874}
+  SecondStar: {fileID: 1952120090}
+  ThirdStar: {fileID: 638282458}
+--- !u!114 &1172034415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172034405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56a9770f0791fbd4cbd0d48be6d046ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1304536427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,9 +1557,9 @@ Transform:
   m_LocalPosition: {x: -180.36563, y: 78.369194, z: 2825.3818}
   m_LocalScale: {x: 46.75, y: 46.75, z: 46.75}
   m_Children:
+  - {fileID: 1793883875}
   - {fileID: 1952120091}
   - {fileID: 638282459}
-  - {fileID: 1793883875}
   m_Father: {fileID: 2013119634}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2004,7 +2021,7 @@ GameObject:
   - component: {fileID: 1793883875}
   - component: {fileID: 1793883876}
   m_Layer: 0
-  m_Name: zvyozdy-transformed_1 (2)
+  m_Name: 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2022,7 +2039,7 @@ Transform:
   m_LocalScale: {x: 0.908195, y: 0.908195, z: 0.908195}
   m_Children: []
   m_Father: {fileID: 1304536428}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1793883876
 SpriteRenderer:
@@ -2186,7 +2203,7 @@ GameObject:
   - component: {fileID: 1952120091}
   - component: {fileID: 1952120092}
   m_Layer: 0
-  m_Name: zvyozdy-transformed_1
+  m_Name: 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2204,7 +2221,7 @@ Transform:
   m_LocalScale: {x: 0.908195, y: 0.908195, z: 0.908195}
   m_Children: []
   m_Father: {fileID: 1304536428}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1952120092
 SpriteRenderer:

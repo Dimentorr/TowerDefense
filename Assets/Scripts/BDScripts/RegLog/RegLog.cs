@@ -15,6 +15,7 @@ public class RegLog : MonoBehaviour
 
     public Text user_name_log;
     public Text password_log;
+
     public void LogIn()
     {
         var object_data_base = gameObject.GetComponent<Connection_on_MySQL>();
@@ -110,13 +111,10 @@ public class RegLog : MonoBehaviour
     {
         var object_data_base = gameObject.GetComponent<Connection_on_MySQL>();
         var object_data_base_local = gameObject.GetComponent<Connection>();
-        try
+        if (object_data_base_local.SelectNumCountLevels() != 5)
         {
-            var check = object_data_base_local.db.Table<levels>().FirstOrDefault().ToString();
+            object_data_base_local.ClearLevels();
 
-        }
-        catch (NullReferenceException)
-        {
             var ALL_DATA_LEVELS = object_data_base.Reader(object_data_base.SqlSelect("levels"));
 
             for (int i = 0; i < ALL_DATA_LEVELS.Count; i++)

@@ -12,6 +12,7 @@ public class Pause : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Escape))
         {
             SetPause();
+            gameObject.GetComponent<EndGame>().UpdateProgress(1, 3);
         }
     }
 

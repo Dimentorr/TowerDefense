@@ -116,8 +116,6 @@ public class Connection_on_MySQL : MonoBehaviour
             }
             StrCommand += $" Where {condition}";
 
-            UnityEngine.Debug.Log(StrCommand);
-
             // создание запроса в бд
             using var command = new MySqlCommand(StrCommand, connection);
 

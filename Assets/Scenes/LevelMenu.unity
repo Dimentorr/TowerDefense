@@ -1078,19 +1078,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 530168663}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2113055137}
-        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
-        m_MethodName: SceneLoad
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &530168663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1212,19 +1200,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 548361684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2113055137}
-        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
-        m_MethodName: SceneLoad
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &548361684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2431,8 +2407,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2113055137}
-        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
+      - m_Target: {fileID: 2113055139}
+        m_TargetAssemblyTypeName: TransitionSceneForLevels, Assembly-CSharp
         m_MethodName: SceneLoad
         m_Mode: 3
         m_Arguments:
@@ -2565,14 +2541,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2113055137}
-        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
+      - m_Target: {fileID: 2113055139}
+        m_TargetAssemblyTypeName: TransitionSceneForLevels, Assembly-CSharp
         m_MethodName: SceneLoad
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4187,14 +4163,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2113055137}
-        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
+      - m_Target: {fileID: 2113055139}
+        m_TargetAssemblyTypeName: TransitionSceneForLevels, Assembly-CSharp
         m_MethodName: SceneLoad
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4320,19 +4296,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1630489343}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2113055137}
-        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
-        m_MethodName: SceneLoad
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1630489343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4455,14 +4419,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2113055137}
-        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
+      - m_Target: {fileID: 2113055139}
+        m_TargetAssemblyTypeName: TransitionSceneForLevels, Assembly-CSharp
         m_MethodName: SceneLoad
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4835,19 +4799,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1887550357}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2113055137}
-        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
-        m_MethodName: SceneLoad
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1887550357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5051,19 +5003,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1909447737}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2113055137}
-        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
-        m_MethodName: SceneLoad
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1909447737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5268,14 +5208,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2113055137}
-        m_TargetAssemblyTypeName: TransitionScene, Assembly-CSharp
+      - m_Target: {fileID: 2113055139}
+        m_TargetAssemblyTypeName: TransitionSceneForLevels, Assembly-CSharp
         m_MethodName: SceneLoad
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -5696,5 +5636,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5cee4e3842ca124b8aa044b2b832fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2113055139 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5528855047141293893, guid: c3a49f0b612376b42906f3f981cb58aa, type: 3}
+  m_PrefabInstance: {fileID: 2113055136}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dee8515e78e4cd458db57a2a9fcb23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

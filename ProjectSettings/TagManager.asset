@@ -9,6 +9,7 @@ TagManager:
   - Circle
   - choice_tower
   - end_road
+  - controller
   layers:
   - Default
   - TransparentFX

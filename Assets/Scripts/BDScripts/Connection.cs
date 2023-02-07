@@ -6,8 +6,12 @@ using SQLite4Unity3d;
 
 public class Connection : MonoBehaviour
 {
-    public SQLiteConnection db = new SQLiteConnection(Application.streamingAssetsPath + "/base/DBForGame.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
-
+    public SQLiteConnection db;
+    private void Start()
+    {
+        db = new SQLiteConnection(Application.streamingAssetsPath + "/base/DBForGame.db", SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create);
+        CheckDB();
+    }
     public void CheckDB()
     {
         try
@@ -44,20 +48,39 @@ public class Connection : MonoBehaviour
            {
                 new levels
                 {
-                    id = Convert.ToInt32(data[0]),
                     corners = data[1],
                     towerPlace = data[2]
                 }
             });
         }
+        else if (table == "progress")
+        {
+            db.InsertAll(new[]
+           {
+                new progress
+                {
+                    levelId = Convert.ToInt32(data[1]),
+                    stars = Convert.ToInt32(data[2])
+                }
+            });
+        }
+    }
 
+    public int SelectNumCountLevels()
+    {
+        return db.Table<levels>().Count();
+    }
+
+    public void ClearLevels()
+    {
+        db.DeleteAll<levels>();
     }
 
     public string Select_User(int ID=1)
     {
         try
         {
-            string answer = db.Table<user>().Where(_ => _.id == ID).FirstOrDefault().ToString();
+            string answer = db.Table<user>().FirstOrDefault().ToString();
             return answer;
         }
         catch
@@ -91,9 +114,9 @@ public class Connection : MonoBehaviour
         }
     }
 
-    public void UpdateTable_Progress(int ID, int levelId, int stars)
+    public void UpdateTable_Progress(int levelId, int stars)
     {
-        var for_update = db.Table<progress>().Where(_ => _.levelId == ID).FirstOrDefault();
+        var for_update = db.Table<progress>().Where(_ => _.levelId == levelId).FirstOrDefault();
         for_update.levelId = levelId;
         for_update.stars = stars;
         db.Update(for_update);
@@ -142,6 +165,7 @@ public class user
 
 public class progress
 {
+    [PrimaryKey]
     public int levelId { get; set; }
     public int stars { get; set; }
     public override string ToString()
